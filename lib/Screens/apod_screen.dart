@@ -45,10 +45,9 @@ class _APODScreenState extends State<APODScreen> {
       body: ListView(
         children: [
           Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
-                height: 10,
+                height: 15,
               ),
               Container(
                 color: Color(0xFF2B2E4A),
