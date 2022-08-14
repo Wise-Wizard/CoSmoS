@@ -15,8 +15,7 @@ class APODNetworking {
     http.Response response = await http.get(uri);
 
     if (response.statusCode == 200) {
-      String pictureData = jsonDecode(response.body);
-      return pictureData;
+      return jsonDecode(response.body);
     } else {
       print(response.statusCode);
     }
