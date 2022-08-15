@@ -10,10 +10,24 @@ class MarsRover extends StatefulWidget {
 }
 
 class _MarsRoverState extends State<MarsRover> {
+  String frontImageUrl = '';
+  String rearImageUrl = '';
   void getData() async {
-    Networking roverNetwork =
-        Networking(url: '/mars-photos/api/v1/rovers/curiosity/photos');
-    var roverData = roverNetwork.getPicture();
+    Networking roverNetwork = Networking(
+        url: '/mars-photos/api/v1/rovers/curiosity/photos', date: '2015-6-3');
+    var roverData = await roverNetwork.getPicture();
+    setState(() {
+      frontImageUrl = roverData['photos'][1]['img_src'];
+      rearImageUrl = roverData['photos'][2]['img_src'];
+    });
+    print(frontImageUrl);
+    print(rearImageUrl);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
   }
 
   @override

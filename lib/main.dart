@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(brightness: Brightness.dark, fontFamily: 'EBGaramond'),
-      home: APODScreen(),
+      home: MarsRover(),
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         APODScreen.id: (context) => APODScreen(),
