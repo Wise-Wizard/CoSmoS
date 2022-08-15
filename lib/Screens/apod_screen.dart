@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Nasa%20Api/networking.dart';
+import 'apod_info_screen.dart';
 
 class APODScreen extends StatefulWidget {
   static String id = 'APOD Screen';
@@ -35,59 +36,52 @@ class _APODScreenState extends State<APODScreen> {
       backgroundColor: Color(0xFF2B2E4A),
       appBar: AppBar(
         backgroundColor: Color(0xFF53354A),
-        elevation: 20,
-        toolbarHeight: 100,
+        elevation: 15,
+        toolbarHeight: 80,
         centerTitle: true,
         title: Text(
           'Astronomical Picture Of The Day',
           style: TextStyle(fontSize: 25),
         ),
       ),
-      body: ListView(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            children: [
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                color: Color(0xFF2B2E4A),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Center(
-                    child: Text(
-                      titletext,
-                      style: TextStyle(
-                          fontSize: 50, decoration: TextDecoration.underline),
-                    ),
-                  ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, right: 10),
+            child: Text(
+              titletext,
+              style:
+                  TextStyle(fontSize: 45, decoration: TextDecoration.underline),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          GestureDetector(
+            child: Card(
+              elevation: 15,
+              color: Color(0xFFE84545),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Image(
+                  height: 350,
+                  fit: BoxFit.cover,
+                  image: NetworkImage(imageUrl),
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                color: Color(0xFFE84545),
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Image(
-                    height: 300,
-                    fit: BoxFit.cover,
-                    image: NetworkImage(imageUrl),
-                  ),
+            ),
+            onTap: () {
+              showModalBottomSheet(
+                backgroundColor: Color(0xFF53354A),
+                elevation: 15,
+                context: context,
+                builder: (context) => APODinfo(
+                  text: theory,
                 ),
-              ),
-              Container(
-                color: Color(0xFF2B2E4A),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Text(
-                    theory,
-                    style: TextStyle(fontSize: 25),
-                  ),
-                ),
-              ),
-            ],
+              );
+            },
           ),
         ],
       ),

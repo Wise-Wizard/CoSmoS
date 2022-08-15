@@ -20,8 +20,6 @@ class _MarsRoverState extends State<MarsRover> {
       frontImageUrl = roverData['photos'][1]['img_src'];
       rearImageUrl = roverData['photos'][2]['img_src'];
     });
-    print(frontImageUrl);
-    print(rearImageUrl);
   }
 
   @override
