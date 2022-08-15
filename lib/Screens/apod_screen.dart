@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Nasa Api/apod_networking.dart';
+import 'package:flutter_application_1/Nasa%20Api/networking.dart';
 
 class APODScreen extends StatefulWidget {
+  static String id = 'APOD Screen';
   @override
   State<APODScreen> createState() => _APODScreenState();
 }
@@ -13,7 +14,7 @@ class _APODScreenState extends State<APODScreen> {
   String imageUrl = '';
   String theory = '';
   void getData() async {
-    APODNetworking apodNetwork = APODNetworking();
+    Networking apodNetwork = Networking(url: '/planetary/apod');
     var apodData = await apodNetwork.getPicture();
     setState(() {
       titletext = apodData['title'];
@@ -72,8 +73,7 @@ class _APODScreenState extends State<APODScreen> {
                   child: Image(
                     height: 300,
                     fit: BoxFit.cover,
-                    image: NetworkImage(
-                        'https://img.freepik.com/premium-vector/space-background-with-abstract-shape-stars_189033-30.jpg?w=2000'),
+                    image: NetworkImage(imageUrl),
                   ),
                 ),
               ),
