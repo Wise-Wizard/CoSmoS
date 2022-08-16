@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Nasa Api/networking.dart';
 import 'package:date_time_picker/date_time_picker.dart';
+import 'package:flutter_application_1/constants.dart';
 
 class MarsRover extends StatefulWidget {
   static String id = 'Mars Rover';
-  const MarsRover({Key? key}) : super(key: key);
 
   @override
   State<MarsRover> createState() => _MarsRoverState();
 }
 
 class _MarsRoverState extends State<MarsRover> {
-  String Date = '2022-08-08';
+  String Date = '2020-08-08';
   String frontImageUrl = '';
   String rearImageUrl = '';
   void getData() async {
@@ -22,7 +22,6 @@ class _MarsRoverState extends State<MarsRover> {
       frontImageUrl = roverData['photos'][1]['img_src'];
       rearImageUrl = roverData['photos'][2]['img_src'];
     });
-    print(frontImageUrl);
   }
 
   @override
@@ -47,6 +46,7 @@ class _MarsRoverState extends State<MarsRover> {
       ),
       body: ListView(
         children: [
+          kSpacing,
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: DateTimePicker(
@@ -69,10 +69,26 @@ class _MarsRoverState extends State<MarsRover> {
               },
             ),
           ),
-          const Text('data'),
-          Image(image: NetworkImage(frontImageUrl)),
-          const Text(''),
-          Image(image: NetworkImage(rearImageUrl)),
+          kSpacing,
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'Front Hazard Avoidance Camera',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 35),
+            ),
+          ),
+          ImageDescription(imageUrl: frontImageUrl, theory: kRoverFact1),
+          kSpacing,
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'Rear Hazard Avoidance Camera',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 35),
+            ),
+          ),
+          ImageDescription(imageUrl: rearImageUrl, theory: kRoverFact2)
         ],
       ),
     );

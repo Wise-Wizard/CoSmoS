@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Nasa%20Api/networking.dart';
 import 'apod_info_screen.dart';
+import 'package:flutter_application_1/constants.dart';
 
 class APODScreen extends StatefulWidget {
   static String id = 'APOD Screen';
@@ -45,9 +46,9 @@ class _APODScreenState extends State<APODScreen> {
         ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          kSpacing,
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 10),
             child: Text(
@@ -56,33 +57,8 @@ class _APODScreenState extends State<APODScreen> {
                   TextStyle(fontSize: 45, decoration: TextDecoration.underline),
             ),
           ),
-          SizedBox(
-            height: 10,
-          ),
-          GestureDetector(
-            child: Card(
-              elevation: 15,
-              color: Color(0xFFE84545),
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Image(
-                  height: 350,
-                  fit: BoxFit.cover,
-                  image: NetworkImage(imageUrl),
-                ),
-              ),
-            ),
-            onTap: () {
-              showModalBottomSheet(
-                backgroundColor: Color(0xFF53354A),
-                elevation: 15,
-                context: context,
-                builder: (context) => APODinfo(
-                  text: theory,
-                ),
-              );
-            },
-          ),
+          kSpacing,
+          ImageDescription(imageUrl: imageUrl, theory: theory),
         ],
       ),
     );
