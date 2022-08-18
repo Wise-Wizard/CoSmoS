@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Screens/apod_info_screen.dart';
+import 'package:flutter_application_1/Screens/info_screen.dart';
 
 SizedBox kSpacing = const SizedBox(
   height: 25,
 );
+
 String kRoverFact1 = """
 Curiosity, also called Mars Science Laboratory (MSL), U.S. robotic vehicle, designed to explore the surface of Mars, which determined that Mars was once capable of supporting life.
 The rover was launched by an Atlas V rocket from Cape Canaveral, Florida, on November 26, 2011, and landed in Gale crater on Mars on August 6, 2012.
@@ -59,7 +60,7 @@ class ImageDescription extends StatelessWidget {
           backgroundColor: const Color(0xFF53354A),
           elevation: 15,
           context: context,
-          builder: (context) => APODinfo(
+          builder: (context) => Info(
             text: theory,
           ),
         );

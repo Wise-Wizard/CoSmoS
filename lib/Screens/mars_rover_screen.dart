@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Nasa Api/networking.dart';
 import 'package:date_time_picker/date_time_picker.dart';
@@ -5,6 +7,8 @@ import 'package:flutter_application_1/constants.dart';
 
 class MarsRover extends StatefulWidget {
   static String id = 'Mars Rover';
+
+  const MarsRover({Key? key}) : super(key: key);
 
   @override
   State<MarsRover> createState() => _MarsRoverState();
@@ -17,7 +21,7 @@ class _MarsRoverState extends State<MarsRover> {
   void getData() async {
     Networking roverNetwork = Networking(
         url: '/mars-photos/api/v1/rovers/curiosity/photos', date: Date);
-    var roverData = await roverNetwork.getPicture();
+    var roverData = await roverNetwork.getDatum();
     setState(() {
       frontImageUrl = roverData['photos'][1]['img_src'];
       rearImageUrl = roverData['photos'][2]['img_src'];

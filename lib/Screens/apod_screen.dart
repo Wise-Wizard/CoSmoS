@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Nasa%20Api/networking.dart';
-import 'apod_info_screen.dart';
 import 'package:flutter_application_1/constants.dart';
 
 class APODScreen extends StatefulWidget {
@@ -17,7 +16,7 @@ class _APODScreenState extends State<APODScreen> {
   String theory = '';
   void getData() async {
     Networking apodNetwork = Networking(url: '/planetary/apod');
-    var apodData = await apodNetwork.getPicture();
+    var apodData = await apodNetwork.getDatum();
     setState(() {
       titletext = apodData['title'];
       imageUrl = apodData['url'];

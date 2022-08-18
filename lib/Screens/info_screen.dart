@@ -2,9 +2,9 @@
 
 import 'package:flutter/cupertino.dart';
 
-class APODinfo extends StatelessWidget {
+class Info extends StatelessWidget {
   final String text;
-  const APODinfo({required this.text});
+  const Info({required this.text});
 
   @override
   Widget build(BuildContext context) {

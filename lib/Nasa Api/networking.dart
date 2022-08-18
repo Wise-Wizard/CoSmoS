@@ -8,16 +8,28 @@ const String apiKey = 'U4lKvtEFQyuvrznczUKmt7exc4rUECKdKhlysgfD';
 class Networking {
   final String url;
   final String date;
-  Networking({required this.url, this.date = ''});
-  Future getPicture() async {
+  final String ver;
+  Networking({required this.url, this.date = '', this.ver = ''});
+  Future getDatum() async {
     Uri uri = Uri();
-    if (date == '') {
+    //Mars Weather API
+    if (ver == '1.0') {
+      uri = Uri.https('api.nasa.gov', url, {
+        'api_key': apiKey,
+        'feedtype': 'json',
+        'ver': ver,
+      });
+    }
+    //APOD Screen API
+    else if (date == '') {
       uri = Uri.https(
         'api.nasa.gov',
         url,
         {'api_key': apiKey},
       );
-    } else {
+    }
+    //MARS Rover API
+    else {
       uri = Uri.https(
         'api.nasa.gov',
         url,
