@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(brightness: Brightness.dark, fontFamily: 'EBGaramond'),
-      home: MarsWeather(),
+      home: HomeScreen(),
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         APODScreen.id: (context) => APODScreen(),

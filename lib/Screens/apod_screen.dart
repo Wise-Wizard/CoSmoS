@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Nasa%20Api/networking.dart';
 import 'package:flutter_application_1/constants.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class APODScreen extends StatefulWidget {
   static String id = 'APOD Screen';
@@ -33,33 +34,59 @@ class _APODScreenState extends State<APODScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF2B2E4A),
-      appBar: AppBar(
-        backgroundColor: Color(0xFF53354A),
-        elevation: 15,
-        toolbarHeight: 80,
-        centerTitle: true,
-        title: Text(
-          'Astronomical Picture Of The Day',
-          style: TextStyle(fontSize: 25),
-        ),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          kSpacing,
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 10),
-            child: Text(
-              titletext,
-              style:
-                  TextStyle(fontSize: 45, decoration: TextDecoration.underline),
-            ),
+        backgroundColor: Color(0xFF2B2E4A),
+        appBar: AppBar(
+          backgroundColor: Color(0xFF53354A),
+          elevation: 15,
+          toolbarHeight: 80,
+          centerTitle: true,
+          title: Text(
+            'Astronomical Picture Of The Day',
+            style: TextStyle(fontSize: 25),
           ),
-          kSpacing,
-          ImageDescription(imageUrl: imageUrl, theory: theory),
-        ],
-      ),
+        ),
+        body: Center(
+          child: imageUrl == ''
+              ? SpinKitPouringHourGlassRefined(
+                  size: 200,
+                  color: Color(0xFFE84545),
+                )
+              : APODWidget(
+                  titletext: titletext, imageUrl: imageUrl, theory: theory),
+        ));
+  }
+}
+
+class APODWidget extends StatelessWidget {
+  const APODWidget({
+    Key? key,
+    required this.titletext,
+    required this.imageUrl,
+    required this.theory,
+  }) : super(key: key);
+
+  final String titletext;
+  final String imageUrl;
+  final String theory;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        kSpacing,
+        Padding(
+          padding: const EdgeInsets.only(left: 15, right: 10),
+          child: Text(
+            titletext,
+            textAlign: TextAlign.center,
+            style:
+                TextStyle(fontSize: 45, decoration: TextDecoration.underline),
+          ),
+        ),
+        kSpacing,
+        ImageDescription(imageUrl: imageUrl, theory: theory)
+      ],
     );
   }
 }

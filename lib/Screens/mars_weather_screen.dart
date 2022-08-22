@@ -20,6 +20,8 @@ class _MarsWeatherState extends State<MarsWeather> {
     var marsWeather = await weatherNetwork.getDatum();
     setState(() {
       sol_key = marsWeather['sol_keys'];
+      print(sol_key);
+
       sol_key = sol_key.reversed.toList();
       for (int i = 0; i < sol_key.length; i++) {
         weather_data.add(marsWeather[sol_key[i]]['AT']);
