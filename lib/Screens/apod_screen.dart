@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Nasa%20Api/networking.dart';
 import 'package:flutter_application_1/constants.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class APODScreen extends StatefulWidget {
   static String id = 'APOD Screen';
@@ -76,11 +78,15 @@ class APODWidget extends StatelessWidget {
         kSpacing,
         Padding(
           padding: const EdgeInsets.only(left: 10, right: 10),
-          child: Text(
-            titletext,
-            textAlign: TextAlign.center,
-            style:
-                TextStyle(fontSize: 35, decoration: TextDecoration.underline),
+          child: AnimatedTextKit(
+            animatedTexts: [
+              TyperAnimatedText(
+                titletext,
+                textAlign: TextAlign.center,
+                textStyle: TextStyle(fontSize: 35),
+              )
+            ],
+            totalRepeatCount: 1,
           ),
         ),
         kSpacing,

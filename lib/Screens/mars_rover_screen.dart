@@ -5,6 +5,7 @@ import 'package:flutter_application_1/Nasa Api/networking.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter_application_1/constants.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class MarsRover extends StatefulWidget {
   static String id = 'Mars Rover';
@@ -85,22 +86,32 @@ class _MarsRoverState extends State<MarsRover> {
           ),
         ),
         kSpacing,
-        const Padding(
+        Padding(
           padding: EdgeInsets.all(8.0),
-          child: Text(
-            'Front Hazard Avoidance Camera',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 35),
+          child: AnimatedTextKit(
+            animatedTexts: [
+              TyperAnimatedText(
+                'Front Hazard Avoidance Camera',
+                textAlign: TextAlign.center,
+                textStyle: TextStyle(fontSize: 35),
+              ),
+            ],
+            totalRepeatCount: 1,
           ),
         ),
         ImageDescription(imageUrl: frontImageUrl, theory: kRoverFact1),
         kSpacing,
-        const Padding(
+        Padding(
           padding: EdgeInsets.all(8.0),
-          child: Text(
-            'Rear Hazard Avoidance Camera',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 35),
+          child: AnimatedTextKit(
+            animatedTexts: [
+              TyperAnimatedText(
+                'Rear Hazard Avoidance Camera',
+                textAlign: TextAlign.center,
+                textStyle: TextStyle(fontSize: 35),
+              ),
+            ],
+            totalRepeatCount: 1,
           ),
         ),
         ImageDescription(imageUrl: rearImageUrl, theory: kRoverFact2)

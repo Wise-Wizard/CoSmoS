@@ -20,6 +20,9 @@ The Spanish Center for Astrobiology supplied Curiosity’s weather station.
 The largest experiment, the Sample Analysis at Mars, consists of a mass spectrometer, a gas chromatograph, and a laser spectrometer that search for carbon-containing compounds.
 Curiosity also has several cameras, one of which takes high-definition video at a rate of 10 frames per second. """;
 
+String kBackgroundImage =
+    "https://cdn.pixabay.com/photo/2017/02/08/12/46/moon-2048727__340.jpg";
+
 class ImageCard extends StatelessWidget {
   final String imageUrl;
   const ImageCard({Key? key, required this.imageUrl}) : super(key: key);
