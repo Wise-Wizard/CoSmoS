@@ -42,14 +42,14 @@ class _APODScreenState extends State<APODScreen> {
           centerTitle: true,
           title: Text(
             'Astronomical Picture Of The Day',
-            style: TextStyle(fontSize: 25),
+            style: TextStyle(fontSize: 20),
           ),
         ),
         body: Center(
           child: imageUrl == ''
               ? SpinKitPouringHourGlassRefined(
-                  size: 200,
                   color: Color(0xFFE84545),
+                  size: 200,
                 )
               : APODWidget(
                   titletext: titletext, imageUrl: imageUrl, theory: theory),
@@ -72,16 +72,15 @@ class APODWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         kSpacing,
         Padding(
-          padding: const EdgeInsets.only(left: 15, right: 10),
+          padding: const EdgeInsets.only(left: 10, right: 10),
           child: Text(
             titletext,
             textAlign: TextAlign.center,
             style:
-                TextStyle(fontSize: 45, decoration: TextDecoration.underline),
+                TextStyle(fontSize: 35, decoration: TextDecoration.underline),
           ),
         ),
         kSpacing,
